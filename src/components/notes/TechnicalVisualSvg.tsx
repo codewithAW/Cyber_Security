@@ -17,7 +17,7 @@ export function TechnicalVisualSvg({ type, title, caption }: TechnicalVisualSvgP
     switch (type) {
       case 'cia-triad':
         return (
-          <svg viewBox="0 0 700 360" className="tech-svg" role="img" aria-label="The CIA Triad Architecture">
+          <svg viewBox="0 0 740 430" className="tech-svg" role="img" aria-label="The CIA Triad Architecture">
             <defs>
               <radialGradient id="cia-glow" cx="50%" cy="50%" r="50%">
                 <stop offset="0%" stopColor="#168BFF" stopOpacity="0.25" />
@@ -36,44 +36,44 @@ export function TechnicalVisualSvg({ type, title, caption }: TechnicalVisualSvgP
                 <stop offset="100%" stopColor="#63D9FF" />
               </linearGradient>
             </defs>
-            <circle cx="350" cy="180" r="160" fill="url(#cia-glow)" />
+            <circle cx="370" cy="235" r="170" fill="url(#cia-glow)" />
 
             {/* Connecting Triangle Edges */}
-            <polygon points="350,55 540,280 160,280" fill="rgba(22, 139, 255, 0.05)" stroke="rgba(99, 217, 255, 0.25)" strokeWidth="2" strokeDasharray="4 4" />
-            <line x1="350" y1="55" x2="540" y2="280" stroke="url(#edge-c-i)" strokeWidth="3" />
-            <line x1="540" y1="280" x2="160" y2="280" stroke="url(#edge-i-a)" strokeWidth="3" />
-            <line x1="160" y1="280" x2="350" y2="55" stroke="url(#edge-a-c)" strokeWidth="3" />
+            <polygon points="370,110 575,320 165,320" fill="rgba(22, 139, 255, 0.05)" stroke="rgba(99, 217, 255, 0.25)" strokeWidth="2" strokeDasharray="4 4" />
+            <line x1="370" y1="110" x2="575" y2="320" stroke="url(#edge-c-i)" strokeWidth="3" />
+            <line x1="575" y1="320" x2="165" y2="320" stroke="url(#edge-i-a)" strokeWidth="3" />
+            <line x1="165" y1="320" x2="370" y2="110" stroke="url(#edge-a-c)" strokeWidth="3" />
 
             {/* Center Core */}
-            <circle cx="350" cy="195" r="38" fill="var(--svg-node-bg, #050B14)" stroke="var(--svg-cyan, #63D9FF)" strokeWidth="2" />
-            <text x="350" y="191" textAnchor="middle" fill="var(--svg-text, #E8F2FF)" fontSize="12" fontWeight="700">INFOSEC</text>
-            <text x="350" y="208" textAnchor="middle" fill="var(--svg-cyan, #63D9FF)" fontSize="10" fontWeight="600">BALANCE</text>
+            <circle cx="370" cy="235" r="44" fill="var(--svg-node-bg, #050B14)" stroke="var(--svg-cyan, #63D9FF)" strokeWidth="2.5" />
+            <text x="370" y="231" textAnchor="middle" fill="var(--svg-text, #E8F2FF)" fontSize="13" fontWeight="800" letterSpacing="0.05em">INFOSEC</text>
+            <text x="370" y="249" textAnchor="middle" fill="var(--svg-cyan, #63D9FF)" fontSize="11" fontWeight="700">BALANCE</text>
 
-            {/* Top Node: Confidentiality */}
-            <g transform="translate(350, 55)">
-              <circle cx="0" cy="0" r="32" fill="var(--svg-node-bg, #050B14)" stroke="var(--svg-cyan, #63D9FF)" strokeWidth="2" />
-              <text x="0" y="-3" textAnchor="middle" fill="var(--svg-cyan, #63D9FF)" fontSize="12" fontWeight="bold">C</text>
-              <text x="0" y="13" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="9">Privacy</text>
-              <text x="0" y="-42" textAnchor="middle" fill="var(--svg-text, #E8F2FF)" fontSize="13" fontWeight="700">CONFIDENTIALITY</text>
-              <text x="0" y="-28" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="10">Encryption · Access Controls</text>
+            {/* Top Node: Confidentiality (Labels positioned with ample clearance above circle to prevent any text collisions) */}
+            <g transform="translate(370, 110)">
+              <circle cx="0" cy="0" r="35" fill="var(--svg-node-bg, #050B14)" stroke="var(--svg-cyan, #63D9FF)" strokeWidth="2.5" />
+              <text x="0" y="-4" textAnchor="middle" fill="var(--svg-cyan, #63D9FF)" fontSize="16" fontWeight="bold">C</text>
+              <text x="0" y="14" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="10.5" fontWeight="600">Privacy</text>
+              <text x="0" y="-62" textAnchor="middle" fill="var(--svg-text, #E8F2FF)" fontSize="14" fontWeight="800" letterSpacing="0.08em">CONFIDENTIALITY</text>
+              <text x="0" y="-45" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="11" fontWeight="600">Encryption · Access Controls · Data Privacy</text>
             </g>
 
-            {/* Right Node: Integrity */}
-            <g transform="translate(540, 280)">
-              <circle cx="0" cy="0" r="32" fill="var(--svg-node-bg, #050B14)" stroke="#22C55E" strokeWidth="2" />
-              <text x="0" y="-3" textAnchor="middle" fill="#22C55E" fontSize="12" fontWeight="bold">I</text>
-              <text x="0" y="13" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="9">Accuracy</text>
-              <text x="0" y="48" textAnchor="middle" fill="var(--svg-text, #E8F2FF)" fontSize="13" fontWeight="700">INTEGRITY</text>
-              <text x="0" y="62" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="10">Hashing · Digital Signatures</text>
+            {/* Right Node: Integrity (Labels positioned cleanly below circle) */}
+            <g transform="translate(575, 320)">
+              <circle cx="0" cy="0" r="35" fill="var(--svg-node-bg, #050B14)" stroke="#22C55E" strokeWidth="2.5" />
+              <text x="0" y="-4" textAnchor="middle" fill="#22C55E" fontSize="16" fontWeight="bold">I</text>
+              <text x="0" y="14" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="10.5" fontWeight="600">Accuracy</text>
+              <text x="0" y="58" textAnchor="middle" fill="var(--svg-text, #E8F2FF)" fontSize="14" fontWeight="800" letterSpacing="0.08em">INTEGRITY</text>
+              <text x="0" y="74" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="11" fontWeight="600">Hashing · Digital Signatures · Tamper Proofing</text>
             </g>
 
-            {/* Left Node: Availability */}
-            <g transform="translate(160, 280)">
-              <circle cx="0" cy="0" r="32" fill="var(--svg-node-bg, #050B14)" stroke="#FF9D32" strokeWidth="2" />
-              <text x="0" y="-3" textAnchor="middle" fill="#FF9D32" fontSize="12" fontWeight="bold">A</text>
-              <text x="0" y="13" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="9">Uptime</text>
-              <text x="0" y="48" textAnchor="middle" fill="var(--svg-text, #E8F2FF)" fontSize="13" fontWeight="700">AVAILABILITY</text>
-              <text x="0" y="62" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="10">Redundancy · Backups · DDoS Defense</text>
+            {/* Left Node: Availability (Labels positioned cleanly below circle) */}
+            <g transform="translate(165, 320)">
+              <circle cx="0" cy="0" r="35" fill="var(--svg-node-bg, #050B14)" stroke="#FF9D32" strokeWidth="2.5" />
+              <text x="0" y="-4" textAnchor="middle" fill="#FF9D32" fontSize="16" fontWeight="bold">A</text>
+              <text x="0" y="14" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="10.5" fontWeight="600">Uptime</text>
+              <text x="0" y="58" textAnchor="middle" fill="var(--svg-text, #E8F2FF)" fontSize="14" fontWeight="800" letterSpacing="0.08em">AVAILABILITY</text>
+              <text x="0" y="74" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="11" fontWeight="600">Redundancy · Backups · DDoS Defense</text>
             </g>
           </svg>
         );
@@ -85,7 +85,7 @@ export function TechnicalVisualSvg({ type, title, caption }: TechnicalVisualSvgP
             <g transform="translate(50, 70)">
               <rect x="0" y="0" width="130" height="140" rx="10" fill="var(--svg-node-bg, #050B14)" stroke="#168BFF" strokeWidth="2" />
               <text x="65" y="30" textAnchor="middle" fill="var(--svg-text, #E8F2FF)" fontSize="13" fontWeight="700">Client / Browser</text>
-              <rect x="25" y="45" width="80" height="40" rx="4" fill="#03070f" stroke="rgba(99,217,255,0.2)" />
+              <rect x="25" y="45" width="80" height="40" rx="4" fill="var(--svg-subbox-bg, #03070f)" stroke="rgba(99,217,255,0.2)" />
               <text x="65" y="68" textAnchor="middle" fill="var(--svg-cyan, #63D9FF)" fontSize="10">192.168.1.10</text>
               <text x="65" y="110" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="10">Local Client Zone</text>
             </g>
@@ -101,7 +101,7 @@ export function TechnicalVisualSvg({ type, title, caption }: TechnicalVisualSvgP
 
             {/* Stateful Firewall */}
             <g transform="translate(300, 40)">
-              <rect x="0" y="0" width="120" height="200" rx="8" fill="#0F172A" stroke="#FF9D32" strokeWidth="2" />
+              <rect x="0" y="0" width="120" height="200" rx="8" fill="var(--svg-card-bg, #0F172A)" stroke="#FF9D32" strokeWidth="2" />
               <rect x="10" y="10" width="100" height="24" rx="4" fill="rgba(255,157,50,0.15)" />
               <text x="60" y="27" textAnchor="middle" fill="#FF9D32" fontSize="11" fontWeight="800">STATEFUL FIREWALL</text>
 
@@ -123,7 +123,7 @@ export function TechnicalVisualSvg({ type, title, caption }: TechnicalVisualSvgP
             <g transform="translate(540, 70)">
               <rect x="0" y="0" width="130" height="140" rx="10" fill="var(--svg-node-bg, #050B14)" stroke="#22C55E" strokeWidth="2" />
               <text x="65" y="30" textAnchor="middle" fill="var(--svg-text, #E8F2FF)" fontSize="13" fontWeight="700">App Server</text>
-              <rect x="25" y="45" width="80" height="40" rx="4" fill="#03070f" stroke="rgba(34,197,94,0.2)" />
+              <rect x="25" y="45" width="80" height="40" rx="4" fill="var(--svg-subbox-bg, #03070f)" stroke="rgba(34,197,94,0.2)" />
               <text x="65" y="68" textAnchor="middle" fill="#4ADE80" fontSize="10">10.0.0.50</text>
               <text x="65" y="110" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="10">Protected DMZ</text>
             </g>
@@ -197,7 +197,7 @@ export function TechnicalVisualSvg({ type, title, caption }: TechnicalVisualSvgP
 
             {/* Attacker in the Middle */}
             <g transform="translate(300, 85)">
-              <rect x="0" y="0" width="120" height="110" rx="8" fill="#1C0808" stroke="#EF4444" strokeWidth="2" />
+              <rect x="0" y="0" width="120" height="110" rx="8" fill="var(--svg-danger-bg, #1C0808)" stroke="#EF4444" strokeWidth="2" />
               <text x="60" y="26" textAnchor="middle" fill="#F87171" fontSize="12" fontWeight="800">ATTACKER (MitM)</text>
               <text x="60" y="44" textAnchor="middle" fill="#EF4444" fontSize="10">ARP Poison / Proxy</text>
               <rect x="15" y="55" width="90" height="36" rx="4" fill="var(--svg-node-bg, #050B14)" />
@@ -227,7 +227,7 @@ export function TechnicalVisualSvg({ type, title, caption }: TechnicalVisualSvgP
               <rect x="0" y="0" width="130" height="180" rx="8" fill="var(--svg-node-bg, #050B14)" stroke="#EF4444" strokeWidth="1.5" />
               <text x="65" y="28" textAnchor="middle" fill="#F87171" fontSize="11" fontWeight="800">1. ATTACKER</text>
               <text x="65" y="48" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="10">Crafts spoofed email</text>
-              <rect x="15" y="65" width="100" height="40" rx="4" fill="#1C0808" />
+              <rect x="15" y="65" width="100" height="40" rx="4" fill="var(--svg-danger-bg, #1C0808)" />
               <text x="65" y="82" textAnchor="middle" fill="#F87171" fontSize="9">"Account Suspended!"</text>
               <text x="65" y="96" textAnchor="middle" fill="#FF9D32" fontSize="8">Urgent Call to Action</text>
               <text x="65" y="140" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="9">From: billing@bank-sec.xyz</text>
@@ -240,7 +240,7 @@ export function TechnicalVisualSvg({ type, title, caption }: TechnicalVisualSvgP
               <rect x="0" y="0" width="130" height="180" rx="8" fill="var(--svg-node-bg, #050B14)" stroke="#FF9D32" strokeWidth="1.5" />
               <text x="65" y="28" textAnchor="middle" fill="#FF9D32" fontSize="11" fontWeight="800">2. VICTIM CLICK</text>
               <text x="65" y="48" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="10">Clicks phishing link</text>
-              <rect x="15" y="65" width="100" height="40" rx="4" fill="#0F172A" />
+              <rect x="15" y="65" width="100" height="40" rx="4" fill="var(--svg-card-bg, #0F172A)" />
               <text x="65" y="82" textAnchor="middle" fill="var(--svg-cyan, #63D9FF)" fontSize="9">Browser opens:</text>
               <text x="65" y="96" textAnchor="middle" fill="#F87171" fontSize="8">http://fake-bank-login.com</text>
               <text x="65" y="140" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="9">Unaware of spoofed URL</text>
@@ -253,7 +253,7 @@ export function TechnicalVisualSvg({ type, title, caption }: TechnicalVisualSvgP
               <rect x="0" y="0" width="130" height="180" rx="8" fill="var(--svg-node-bg, #050B14)" stroke="#EF4444" strokeWidth="1.5" />
               <text x="65" y="28" textAnchor="middle" fill="#F87171" fontSize="11" fontWeight="800">3. HARVESTING</text>
               <text x="65" y="48" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="10">Victim submits password</text>
-              <rect x="15" y="65" width="100" height="40" rx="4" fill="#1C0808" />
+              <rect x="15" y="65" width="100" height="40" rx="4" fill="var(--svg-danger-bg, #1C0808)" />
               <text x="65" y="82" textAnchor="middle" fill="#F87171" fontSize="9">User: user@corp.com</text>
               <text x="65" y="96" textAnchor="middle" fill="#F87171" fontSize="9">Pass: Secret123!</text>
               <text x="65" y="140" textAnchor="middle" fill="#F87171" fontSize="9">Stored to Attacker DB</text>
@@ -263,7 +263,7 @@ export function TechnicalVisualSvg({ type, title, caption }: TechnicalVisualSvgP
 
             {/* Defense Barrier */}
             <g transform="translate(650, 40)">
-              <rect x="0" y="0" width="50" height="180" rx="6" fill="#05180C" stroke="#22C55E" strokeWidth="2" />
+              <rect x="0" y="0" width="50" height="180" rx="6" fill="var(--svg-success-bg, #05180C)" stroke="#22C55E" strokeWidth="2" />
               <text x="25" y="70" textAnchor="middle" fill="#4ADE80" fontSize="11" fontWeight="800" transform="rotate(-90 25 70)">MFA / FIDO2 DEFENSE</text>
               <text x="25" y="140" textAnchor="middle" fill="#22C55E" fontSize="16">🛡️</text>
             </g>
@@ -275,21 +275,21 @@ export function TechnicalVisualSvg({ type, title, caption }: TechnicalVisualSvgP
           <svg viewBox="0 0 720 280" className="tech-svg" role="img" aria-label="Shared Responsibility Breakdown">
             <g transform="translate(40, 20)">
               <text x="140" y="20" textAnchor="middle" fill="var(--svg-cyan, #63D9FF)" fontSize="13" fontWeight="800">IaaS (Infrastructure)</text>
-              <rect x="0" y="35" width="280" height="70" rx="6" fill="#0A1828" stroke="#168BFF" strokeWidth="1.5" />
+              <rect x="0" y="35" width="280" height="70" rx="6" fill="var(--svg-info-bg, #0A1828)" stroke="#168BFF" strokeWidth="1.5" />
               <text x="140" y="60" textAnchor="middle" fill="var(--svg-cyan, #63D9FF)" fontSize="11" fontWeight="700">Customer Responsibility</text>
               <text x="140" y="80" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="10">Data · IAM · OS Patching · Network Firewalls</text>
 
-              <rect x="0" y="115" width="280" height="70" rx="6" fill="#0F172A" stroke="#9BB1C9" strokeWidth="1.5" />
+              <rect x="0" y="115" width="280" height="70" rx="6" fill="var(--svg-card-bg, #0F172A)" stroke="#9BB1C9" strokeWidth="1.5" />
               <text x="140" y="140" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="11" fontWeight="700">Cloud Provider Responsibility</text>
               <text x="140" y="160" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="10">Hypervisor · Physical Servers · Data Center Facilities</text>
             </g>
 
             <g transform="translate(400, 20)">
               <text x="140" y="20" textAnchor="middle" fill="#22C55E" fontSize="13" fontWeight="800">SaaS (Software as a Service)</text>
-              <rect x="0" y="35" width="280" height="40" rx="6" fill="#0A1828" stroke="#168BFF" strokeWidth="1.5" />
+              <rect x="0" y="35" width="280" height="40" rx="6" fill="var(--svg-info-bg, #0A1828)" stroke="#168BFF" strokeWidth="1.5" />
               <text x="140" y="58" textAnchor="middle" fill="var(--svg-cyan, #63D9FF)" fontSize="11" fontWeight="700">Customer: Data & User Identity Permissions</text>
 
-              <rect x="0" y="85" width="280" height="100" rx="6" fill="#0F172A" stroke="#22C55E" strokeWidth="1.5" />
+              <rect x="0" y="85" width="280" height="100" rx="6" fill="var(--svg-card-bg, #0F172A)" stroke="#22C55E" strokeWidth="1.5" />
               <text x="140" y="115" textAnchor="middle" fill="#22C55E" fontSize="11" fontWeight="700">Cloud Provider Responsibility</text>
               <text x="140" y="135" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="10">Application Code · Runtimes · Operating System</text>
               <text x="140" y="155" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="10">Databases · Physical Infrastructure · Disaster Recovery</text>
@@ -302,7 +302,7 @@ export function TechnicalVisualSvg({ type, title, caption }: TechnicalVisualSvgP
           <svg viewBox="0 0 720 280" className="tech-svg" role="img" aria-label="IoT Botnet Infection and DDoS Swarm">
             {/* Attacker C2 Server */}
             <g transform="translate(40, 90)">
-              <rect x="0" y="0" width="120" height="100" rx="8" fill="#1C0808" stroke="#EF4444" strokeWidth="2" />
+              <rect x="0" y="0" width="120" height="100" rx="8" fill="var(--svg-danger-bg, #1C0808)" stroke="#EF4444" strokeWidth="2" />
               <text x="60" y="30" textAnchor="middle" fill="#F87171" fontSize="11" fontWeight="800">ATTACKER C2</text>
               <text x="60" y="50" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="9">Command & Control</text>
               <text x="60" y="75" textAnchor="middle" fill="#EF4444" fontSize="9">Scans Telnet Port 23</text>
@@ -332,10 +332,10 @@ export function TechnicalVisualSvg({ type, title, caption }: TechnicalVisualSvgP
 
             {/* Target Enterprise */}
             <g transform="translate(550, 85)">
-              <rect x="0" y="0" width="130" height="110" rx="8" fill="#0F172A" stroke="#FF9D32" strokeWidth="2" />
+              <rect x="0" y="0" width="130" height="110" rx="8" fill="var(--svg-card-bg, #0F172A)" stroke="#FF9D32" strokeWidth="2" />
               <text x="65" y="30" textAnchor="middle" fill="var(--svg-text, #E8F2FF)" fontSize="11" fontWeight="800">VICTIM TARGET</text>
               <text x="65" y="50" textAnchor="middle" fill="#F87171" fontSize="10">Server Overloaded</text>
-              <rect x="20" y="65" width="90" height="28" rx="4" fill="#1C0808" />
+              <rect x="20" y="65" width="90" height="28" rx="4" fill="var(--svg-danger-bg, #1C0808)" />
               <text x="65" y="83" textAnchor="middle" fill="#F87171" fontSize="9">DENIAL OF SERVICE</text>
             </g>
           </svg>
@@ -350,7 +350,7 @@ export function TechnicalVisualSvg({ type, title, caption }: TechnicalVisualSvgP
               <rect x="0" y="0" width="150" height="150" rx="10" fill="var(--svg-node-bg, #050B14)" stroke="#168BFF" strokeWidth="2" />
               <text x="75" y="32" textAnchor="middle" fill="var(--svg-text, #E8F2FF)" fontSize="12" fontWeight="700">Wi-Fi Device</text>
               <text x="75" y="50" textAnchor="middle" fill="var(--svg-cyan, #63D9FF)" fontSize="10">Supplicant</text>
-              <rect x="20" y="70" width="110" height="50" rx="4" fill="#03070f" />
+              <rect x="20" y="70" width="110" height="50" rx="4" fill="var(--svg-subbox-bg, #03070f)" />
               <text x="75" y="90" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="9">Password Scalar</text>
               <text x="75" y="106" textAnchor="middle" fill="#22C55E" fontSize="9">PWE Zero-Knowledge</text>
             </g>
@@ -372,7 +372,7 @@ export function TechnicalVisualSvg({ type, title, caption }: TechnicalVisualSvgP
               <rect x="0" y="0" width="150" height="150" rx="10" fill="var(--svg-node-bg, #050B14)" stroke="#22C55E" strokeWidth="2" />
               <text x="75" y="32" textAnchor="middle" fill="var(--svg-text, #E8F2FF)" fontSize="12" fontWeight="700">WPA3 Access Point</text>
               <text x="75" y="50" textAnchor="middle" fill="#4ADE80" fontSize="10">Authenticator</text>
-              <rect x="20" y="70" width="110" height="50" rx="4" fill="#03070f" />
+              <rect x="20" y="70" width="110" height="50" rx="4" fill="var(--svg-subbox-bg, #03070f)" />
               <text x="75" y="90" textAnchor="middle" fill="var(--svg-text-subtle, #9BB1C9)" fontSize="9">SAE Validation</text>
               <text x="75" y="106" textAnchor="middle" fill="#22C55E" fontSize="9">Forward Secrecy Key</text>
             </g>

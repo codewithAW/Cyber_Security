@@ -20,6 +20,11 @@
   --svg-green: #22C55E;
   --svg-orange: #FF9D32;
   --svg-red: #EF4444;
+  --svg-card-bg: #0b1322;
+  --svg-subbox-bg: #03070f;
+  --svg-danger-bg: #1f0b0b;
+  --svg-success-bg: #06190e;
+  --svg-info-bg: #08172c;
   color-scheme: dark;
 }
 
@@ -45,6 +50,11 @@
   --svg-green: #15803d;
   --svg-orange: #c2410c;
   --svg-red: #b91c1c;
+  --svg-card-bg: #ffffff;
+  --svg-subbox-bg: #f1f5f9;
+  --svg-danger-bg: #fef2f2;
+  --svg-success-bg: #f0fdf4;
+  --svg-info-bg: #f0f9ff;
   color-scheme: light;
 }
 
@@ -131,12 +141,16 @@ button {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 50;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px var(--pad-x);
+  padding: 16px var(--pad-x);
   pointer-events: none;
+  background: rgba(3, 8, 16, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(99, 217, 255, 0.08);
 }
 
 .site-header > * {
@@ -858,7 +872,7 @@ body:has(.practicals-page-root) .scene-layer {
 
 .awa-scroll-track {
   position: relative;
-  height: 620vh;
+  height: 200vh;
   pointer-events: none;
 }
 
@@ -1088,5 +1102,33 @@ body:has(.practicals-page-root) .scene-layer {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+}
+
+
+/* Responsive mobile header ergonomics */
+@media (max-width: 640px) {
+  .site-header {
+    padding: 10px 14px !important;
+  }
+  .brand {
+    gap: 7px !important;
+  }
+  .brand-name {
+    display: inline-block !important;
+    font-size: 11px !important;
+    letter-spacing: 0.16em !important;
+  }
+  .site-nav {
+    gap: 8px !important;
+  }
+  .nav-link {
+    font-size: 11.5px !important;
+    padding: 4px 6px !important;
+  }
+  .orb-toggle,
+  .theme-toggle-btn {
+    width: 32px !important;
+    height: 32px !important;
   }
 }

@@ -17,25 +17,20 @@ export function ScrollActionsOverlay({
   awaProgress,
 }: ScrollActionsOverlayProps) {
   // Visible during the stabilized formation stages:
-  // Starts fading in around 0.28, fully visible 0.34 to 0.76, fades out during dispersion (>0.76)
+  // Starts fading in around 0.32, fully visible from 0.48 all the way through 1.0 (bottom of the page)
   let opacity = 0;
   let translateY = 15;
 
-  if (awaProgress >= 0.28 && awaProgress <= 0.86) {
-    if (awaProgress < 0.36) {
+  if (awaProgress >= 0.32) {
+    if (awaProgress < 0.48) {
       // Fade in smoothly as text finishes stabilizing
-      const t = (awaProgress - 0.28) / 0.08;
+      const t = (awaProgress - 0.32) / 0.16;
       opacity = t;
       translateY = 15 * (1 - t);
-    } else if (awaProgress <= 0.76) {
-      // Fully formed and stable
+    } else {
+      // Fully formed and stable all the way to the bottom of the page
       opacity = 1;
       translateY = 0;
-    } else {
-      // Fading out during dispersion
-      const t = Math.min(1, (awaProgress - 0.76) / 0.1);
-      opacity = 1 - t;
-      translateY = -12 * t;
     }
   }
 

@@ -165,14 +165,6 @@ export default function App() {
             onNavigatePracticals={handleNavigatePracticals}
             awaProgress={awaProgress}
           />
-
-          {/* FOOTER: Reveals as particles clear */}
-          <Footer
-            onNavHome={handleNavigateHome}
-            onNavigateNotes={handleNavigateNotes}
-            onNavigatePracticals={handleNavigatePracticals}
-            currentPage="home"
-          />
         </main>
       )}
 

@@ -506,7 +506,7 @@ export class ParticleEngine {
         this.currentAnnounced = 'awa';
         this.onFormationChange?.('awa');
       }
-    } else if (this.awaProgressSmooth >= 0.48 && this.awaProgressSmooth <= 0.78) {
+    } else if (this.awaProgressSmooth >= 0.48) {
       if (this.currentAnnounced !== 'emblem') {
         this.currentAnnounced = 'emblem';
         this.onFormationChange?.('emblem');
@@ -570,12 +570,7 @@ export class ParticleEngine {
 
     if (inAwa) {
       heroY = this.visH * 0.025;
-      if (P_awa > 0.78) {
-        const dispP = clamp((P_awa - 0.78) / 0.16, 0, 1);
-        globalOpacity = clamp(1 - dispP * dispP, 0, 1);
-      } else {
-        globalOpacity = 1;
-      }
+      globalOpacity = 1;
     } else {
       // In Hero mode: glides up and fades gently if scrolling down past 15%
       if (this.heroExitSmooth > 0) {
@@ -657,10 +652,6 @@ export class ParticleEngine {
         const enY = this.entryPos[i3 + 1];
         const enZ = this.entryPos[i3 + 2];
 
-        const exX = this.exitPos[i3];
-        const exY = this.exitPos[i3 + 1];
-        const exZ = this.exitPos[i3 + 2];
-
         if (P_awa <= 0.22) {
           // STAGE 1: Entering from all sides & Converging (0 to 22%)
           const u = P_awa / 0.22;
@@ -703,10 +694,10 @@ export class ParticleEngine {
           fcB = awa.colors[i3 + 2];
           fSize = awa.sizes[i];
 
-        } else if (P_awa <= 0.76) {
-          // STAGE 3: Futuristic StudyVerse Cyber Emblem & Holographic Logo (46% to 76%)
+        } else {
+          // STAGE 3: Futuristic StudyVerse Cyber Emblem & Holographic Logo (46% to 100%)
           // Between 46% and 58%: Morph smoothly from AWA to Cyber Emblem
-          // Between 58% and 76%: Emblem is formed, fully stable, razor-sharp, gyro-rotating & buttons revealed
+          // From 58% to 100%: Emblem is formed, fully stable, razor-sharp, gyro-rotating & buttons active at bottom of page
           if (P_awa < 0.58 && emblem) {
             const u = (P_awa - 0.46) / 0.12;
             const pDelay = this.delay[i] * 0.25;
@@ -729,7 +720,7 @@ export class ParticleEngine {
             fcB = lerp(awa.colors[i3 + 2], emblem.colors[i3 + 2], ti);
             fSize = lerp(awa.sizes[i], emblem.sizes[i], ti);
           } else {
-            // Fully formed Cyber Emblem
+            // Fully formed Cyber Emblem permanently locked as the bottom of the page
             fx = emX;
             fy = emY;
             fz = emZ;
@@ -745,32 +736,6 @@ export class ParticleEngine {
               fcB = emblem.colors[i3 + 2];
               fSize = emblem.sizes[i];
             }
-          }
-
-        } else {
-          // STAGE 4 & 5: Disperse outward toward edges and depth (76% to 92% to 100%)
-          const u = clamp((P_awa - 0.76) / 0.18, 0, 1);
-          const pDelay = this.delay[i] * 0.22;
-          const ti = clamp((u - pDelay) / (1 - pDelay), 0, 1);
-          const ei = ti * ti * (3 - 2 * ti); // smoothstep
-
-          fx = lerp(emX, exX, ei);
-          fy = lerp(emY, exY, ei);
-          fz = lerp(emZ, exZ, ei);
-
-          // Disperse turbulence / breakup
-          if (ti > 0 && ti < 1) {
-            const diss = Math.sin(ti * Math.PI) * this.visH * 0.065 * (0.5 + r);
-            fx += dir[i3] * diss;
-            fy += dir[i3 + 1] * diss;
-            fz += dir[i3 + 2] * diss * 1.4;
-          }
-
-          if (emblem) {
-            fcR = emblem.colors[i3];
-            fcG = emblem.colors[i3 + 1];
-            fcB = emblem.colors[i3 + 2];
-            fSize = emblem.sizes[i] * (1 + ei * 0.3);
           }
         }
       }
@@ -794,7 +759,7 @@ export class ParticleEngine {
     // =========================================================================
     // AMBIENT ORBITING PARTICLES
     // =========================================================================
-    const inEmblemFormed = inAwa && P_awa >= 0.52 && P_awa <= 0.78 && emblem;
+    const inEmblemFormed = inAwa && P_awa >= 0.52 && emblem;
     const inAwaFormed = inAwa && P_awa >= 0.20 && P_awa < 0.52 && awa;
 
     let hw = 1, hh = 1, orbCfg = dst.orbit;

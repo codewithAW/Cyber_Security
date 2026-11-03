@@ -27,12 +27,12 @@ export function useScrollParallax(engineRef: RefObject<ParticleEngine | null>): 
       const docHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
       const maxScroll = Math.max(1, docHeight - vh);
 
-      // Hero exit range: from 10% of viewport down to 105% for a smooth, relaxed exit
-      const heroExit = clamp((scrollY - vh * 0.10) / (vh * 0.95), 0, 1);
+      // Hero exit range: from 10% of viewport down to 85% for a smooth, relaxed exit
+      const heroExit = clamp((scrollY - vh * 0.10) / (vh * 0.75), 0, 1);
 
-      // AWA sequence: starts as hero exits, unfolding slowly and deliberately
-      const awaStart = vh * 0.90;
-      const awaTotal = Math.max(1, maxScroll - awaStart - vh * 0.35);
+      // AWA & StudyVerse emblem sequence: starts as hero begins exiting, reaches 1.0 at maxScroll
+      const awaStart = vh * 0.25;
+      const awaTotal = Math.max(1, maxScroll - awaStart);
       const awaProgress = clamp((scrollY - awaStart) / awaTotal, 0, 1);
 
       const parallaxScroll = scrollY / vh;
